@@ -1,0 +1,200 @@
+/* ✅ Dashboard Container Fix */
+.dashboard-container {
+    width: 100vw; /* Ensures it doesn't overflow */
+    max-width: 1200px; /* Center content */
+    height: auto;
+    padding: 20px;
+    background-color: #0a112e;
+    color: white;
+    text-align: center;
+    overflow-x: hidden; /* Ensures no overflow */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+/* ✅ Problem Statement Input - Bigger & More Readable */
+.problem-input {
+    width: 90%;
+    height: 120px;  /* Bigger for better readability */
+    padding: 12px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    background-color: #1a1a2e;
+    color: white;
+    display: block;
+    margin: 15px auto;
+}
+
+/* ✅ Submit Button - Compact & Stylish */
+.submit-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    width: 300px;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    display: block;
+    margin: 30px auto 50px;
+    text-align: center;
+}
+
+.submit-button:hover {
+    transform: scale(1.05);
+}
+
+/* ✅ Features Grid - Centered */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* Fixes extra width */
+    gap: 70px;
+    margin-top: 20px;
+    padding: 0 5px; /* Reduced padding */
+    justify-content: center;
+    align-items: center;
+}
+
+/* ✅ Feature Cards - More Engaging */
+.feature-card {
+    position: relative;
+    width: 370px ; 
+    max-width: 450px;
+    height: 160px;
+    border-radius: 12px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: white;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease-in-out;
+    margin: auto;
+}
+
+.feature-card:hover {
+    transform: scale(1.05);
+}
+
+.feature-card .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.feature-card p {
+    position: relative;
+    z-index: 1;
+}
+
+.shortcut-icons {
+    position: absolute;
+    bottom: 10px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Improved spacing for better visibility */
+    align-items: center;
+    z-index: 2;
+}
+
+.shortcut-icons .icon-button {
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: #1a1a2e;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4), 
+                -3px -3px 6px rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease-in-out;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.shortcut-icons .icon {
+    font-size: 1.8rem; /* Slightly larger for better visibility */
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.2); /* Light background */
+    transition: all 0.3s ease-in-out;
+}
+
+.shortcut-icons .icon-button:hover .icon {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.2);
+}
+
+/* Specific styles for Friends Support Popup icons */
+.popup .icon-button {
+    padding: 12px 16px;
+    border-radius: 8px;
+    background: #666;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.3s;
+}
+
+.popup .icon-button:hover {
+    background: #d36776;
+}
+
+.popup .video {
+    color: #ff4d4d;
+}
+
+.popup .mic {
+    color: #4da6ff;
+}
+
+.popup .chat {
+    color: #4dff88;
+}
+
+@media (max-width: 600px) {
+    .shortcut-icons {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .shortcut-icons .icon {
+        font-size: 1.5rem;
+        padding: 6px;
+    }
+    
+    .popup .icon-button {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+}
+
+
+/* ✅ Responsive Fix for Smaller Screens */
+@media (max-width: 900px) {
+    .features-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 cards per row */
+    }
+}
+
+@media (max-width: 600px) {
+    .features-grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr)); /* 1 card per row */
+    }
+}
