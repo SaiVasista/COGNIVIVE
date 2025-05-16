@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/Dashboard.css";
-import { FaVideo, FaMicrophone, FaComments } from "react-icons/fa";
+import { FaVideo, FaComments } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const features = [
@@ -60,8 +60,9 @@ const UserDashboard = () => {
       {showCallPopup && (
         <div className="popup">
           <h3>Choose Call Type</h3>
-          <button onClick={() => alert("Starting Live Voice Call...")}>Live Voice</button>
-          <button onClick={() => alert("Starting Live Video Call...")}>Live Video</button>
+          <button onClick={() => window.open("https://meet.google.com/nag-euji-iey?authuser=0", "_blank")}>
+            Live Call
+          </button>
           <button onClick={() => alert("Viewing Recordings...")}>View Recordings</button>
           <button onClick={() => setShowCallPopup(false)}>Close</button>
         </div>
@@ -92,13 +93,10 @@ const UserDashboard = () => {
       {showFeaturePopup === "friends" && (
         <div className="popup">
           <h3>Connect with Friends</h3>
-          <button className="icon-button" onClick={() => alert("Starting Video Call...")}> 
-            <FaVideo className="icon video" /> Video Call
+          <button className="icon-button" onClick={() => window.open("https://meet.google.com/nag-euji-iey?authuser=0", "_blank")}>
+            <FaVideo className="icon video" /> Call
           </button>
-          <button className="icon-button" onClick={() => alert("Starting Voice Call...")}> 
-            <FaMicrophone className="icon mic" /> Voice Call
-          </button>
-          <button className="icon-button" onClick={() => alert("Opening Chat...")}> 
+          <button className="icon-button" onClick={() => window.open("https://discord.gg/zSwnz5EARa", "_blank")}>
             <FaComments className="icon chat" /> Chat
           </button>
           <button onClick={() => setShowFeaturePopup(null)}>Close</button>
