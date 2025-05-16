@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "../styles/Dashboard.css";
 
 const psychiatristFeatures = [
@@ -10,9 +10,17 @@ const psychiatristFeatures = [
 ];
 
 const PsychiatristDashboard = () => {
+  const [showCallPopup, setShowCallPopup] = useState(false);
+
+  const handleFeatureClick = (feature) => {
+    if (feature.text === "Call & Recordings") {
+      setShowCallPopup(true);
+    }
+  };
+
   return (
     <div className="dashboard-container">
-      <h2>Psychiatrist Dashboard</h2>
+      <h2>Psychologist Dashboard</h2>
       <button className="submit-button">Submit Reports</button>
       <h3>Features:</h3>
       <div className="features-grid">
@@ -21,12 +29,25 @@ const PsychiatristDashboard = () => {
             key={index}
             className="feature-card"
             style={{ backgroundImage: `url(/images/${feature.bg})` }}
+            onClick={() => handleFeatureClick(feature)}
           >
             <div className="overlay"></div>
             <p>{feature.icon} {feature.text}</p>
           </div>
         ))}
       </div>
+
+      {/* Call & Recordings Popup */}
+      {showCallPopup && (
+        <div className="popup">
+          <h3>Choose Call Type</h3>
+          <button onClick={() => window.open("https://meet.google.com/nag-euji-iey?authuser=0", "_blank")}>
+            Live Call
+          </button>
+          <button onClick={() => alert("Viewing Recordings...")}>View Recordings</button>
+          <button onClick={() => setShowCallPopup(false)}>Close</button>
+        </div>
+      )}
     </div>
   );
 };
